@@ -3,7 +3,7 @@ version: '3.8'
 services:
   crypto_db:
     image: postgres:16.2
-    container_name: db
+    container_name: crypto_db
     restart: always
     environment:
       - POSTGRES_DB=${DB_NAME}
@@ -23,9 +23,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: app
+    container_name: crypto_app
     depends_on:
-      db:
+      crypto_db:
         condition: service_healthy
     ports:
       - '8000:8000'
