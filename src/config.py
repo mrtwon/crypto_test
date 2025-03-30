@@ -7,7 +7,7 @@ def get_model_config():
 
 
 class Settings(BaseSettings):
-    DB_HOST: str = Field(default='192.168.0.19')
+    DB_HOST: str = Field(default='postgres')
     DB_PORT: int = Field(default='5432')
     DB_USER: str = Field(default='postgres')
     DB_PASS: str = Field(default='postgres')
