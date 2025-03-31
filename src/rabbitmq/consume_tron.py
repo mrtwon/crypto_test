@@ -41,16 +41,13 @@ class ConsumeTron:
 
         try:
             new_model = StatisticsModel(address=data)
-            print(session.is_active)
             await create_stat_repo.add(new_model)
             await create_stat_repo.commit()
-            print(session.is_active)
             result_data = float(create_tron_repo.get_balance_by_tron_address(data))
             result_status_code = 200
         except BadAddress:
             result_status_code = 404
         except Exception as e:
-            print(e)
             result_status_code = 500
 
         result_json = {

@@ -5,7 +5,6 @@ from src.infrastructure.tron.repo import TronRepo
 
 
 def get_tron():
-    print('get tron')
     return TronRepo()
 
 
