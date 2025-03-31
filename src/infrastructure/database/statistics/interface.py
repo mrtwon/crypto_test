@@ -13,3 +13,6 @@ class IStatisticsRepo(ABC, ISQLAlchemyRepo):
 
     async def get_all_count(self) -> int:
         ...
+
+    async def get_by_tron_address(self, tron_address: str) -> StatisticsModel | None:
+        ...

@@ -5,6 +5,8 @@ from starlette.testclient import TestClient
 from src.config import settings
 from src.infrastructure.database.base import Base
 from src.main import app
+from src.infrastructure.database.statistics.interface import IStatisticsRepo
+from src.infrastructure.database.statistics.repo import StatisticsRepo
 
 
 @pytest.fixture(scope="session")

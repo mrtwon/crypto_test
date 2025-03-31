@@ -24,3 +24,8 @@ class StatisticsRepo(IStatisticsRepo, SQLAlchemyRepo):
         stmt = select(func.count()).select_from(StatisticsTable)
         result = (await self.session.execute(stmt)).mappings().one()
         return result['count']
+
+    async def get_by_tron_address(self, tron_address: str) -> StatisticsModel | None:
+        stmt = select(StatisticsTable).where(StatisticsTable.address == tron_address)
+        result = await self.session.scalar(stmt)
+        return result
